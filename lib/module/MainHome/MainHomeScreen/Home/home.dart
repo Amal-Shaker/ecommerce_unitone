@@ -1,8 +1,10 @@
 import 'package:ecommerce_unitone/model/product.dart';
+import 'package:ecommerce_unitone/module/MainHome/MainHomeScreen/Home/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../../Constants/constants.dart';
 import 'HomeWidget/custome_category_item.dart';
 import 'product_by_category_screen.dart';
 import 'HomeWidget/titles_widget.dart';
@@ -18,9 +20,18 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 251, 147, 182),
+        automaticallyImplyLeading: false,
+        backgroundColor: Constants.pinkColor,
         title: const Text('All Product'),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => SearchScreen()));
+              },
+              icon: Icon(Icons.search))
+        ],
       ),
       body: GetBuilder(
           init: AllProductControllor(),

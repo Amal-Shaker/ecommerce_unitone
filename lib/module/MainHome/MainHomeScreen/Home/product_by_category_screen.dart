@@ -1,3 +1,4 @@
+import 'package:ecommerce_unitone/Constants/constants.dart';
 import 'package:ecommerce_unitone/module/MainHome/all_product_controllor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +17,7 @@ class AllProductByCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 251, 147, 182),
+        backgroundColor: Constants.pinkColor,
         title: Text('$categoryName Product'),
         centerTitle: true,
       ),

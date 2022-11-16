@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../Constants/constants.dart';
 import '../all_product_controllor.dart';
 
 class CartScreen extends StatelessWidget {
@@ -12,7 +13,8 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 251, 147, 182),
+        automaticallyImplyLeading: false,
+        backgroundColor: Constants.pinkColor,
         title: const Text('My Cart Product'),
         centerTitle: true,
       ),

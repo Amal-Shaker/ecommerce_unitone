@@ -9,6 +9,7 @@ class AllProductControllor extends GetxController {
   bool isLoading = false;
   bool isLoading1 = false;
   List<Tproduct>? allProduct = [];
+  List<Tproduct>? allProduct1 = [];
   List<Category>? allCategory = [];
 
   List<Tproduct>? allFavProduct = [];
@@ -20,6 +21,7 @@ class AllProductControllor extends GetxController {
     isLoading = true;
     update();
     allProduct = await ProductRepo.instance.getProductRequest();
+    allProduct1 = allProduct;
     isLoading = false;
     update();
   }
@@ -140,6 +142,16 @@ class AllProductControllor extends GetxController {
         : await DbHelper.instance.updateCart(product);
     getAllProductCart();
     calculateTotalPrice();
+    update();
+  }
+
+  void searchProduct(String query) {
+    final suggestion = allProduct!.where((element) {
+      final productTitle = element.title!.toLowerCase();
+      final input = query.toLowerCase();
+      return productTitle.contains(input);
+    }).toList();
+    allProduct1 = suggestion;
     update();
   }
 
