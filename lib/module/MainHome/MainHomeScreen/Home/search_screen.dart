@@ -56,7 +56,7 @@ class SearchScreen extends StatelessWidget {
                           Icons.search,
                           color: Constants.pinkColor,
                         ),
-                        hintText: 'Product Title',
+                        hintText: 'Product Title or Category Name',
                       ),
                       onChanged: allProductControllor.searchProduct),
                 )),

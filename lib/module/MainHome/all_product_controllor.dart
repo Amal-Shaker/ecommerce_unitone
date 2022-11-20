@@ -148,10 +148,18 @@ class AllProductControllor extends GetxController {
   void searchProduct(String query) {
     final suggestion = allProduct!.where((element) {
       final productTitle = element.title!.toLowerCase();
+      final productCategoryName = element.category!.name!.toLowerCase();
       final input = query.toLowerCase();
-      return productTitle.contains(input);
+      return productTitle.contains(input) ||
+          productCategoryName.contains(input);
     }).toList();
     allProduct1 = suggestion;
+    print('llllllllllllllll');
+    allProduct1!
+        .map(
+          (e) => print(e.category!.name),
+        )
+        .toList();
     update();
   }
 
